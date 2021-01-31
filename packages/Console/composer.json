@@ -1,0 +1,16 @@
+{
+    "name": "wp-next/console",
+    "description": "The WpNext Console package.",
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.22",
+        "illuminate/console": "^8.24",
+        "illuminate/filesystem":  "^8.24",
+        "league/flysystem": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "WpNext\\Console\\": "src"
+        }
+    }
+}
