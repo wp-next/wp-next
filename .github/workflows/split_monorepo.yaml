@@ -34,4 +34,6 @@ jobs:
                     split-repository-organization: 'wp-next'
                     split-repository-name: 'view'
 
-                    tag: ${{ steps.previous_tag.outputs.tag }}
+                    tag: ${{ steps.previous_tag.outputs.tag }},
+                    user-email: 'kim@bravissimo.se',
+                    user-name: 'Kim Larsson'
