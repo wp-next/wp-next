@@ -24,6 +24,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     ]);
 
     $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES, [
+        'packages/Ajax' => 'git@bitbucket.org:bravissimo_agency/wp-next-ajax.git',
+        'packages/Console' => 'git@bitbucket.org:bravissimo_agency/wp-next-console.git',
+        'packages/Core' => 'git@bitbucket.org:bravissimo_agency/wp-next-core.git',
+        'packages/Hook' => 'git@bitbucket.org:bravissimo_agency/wp-next-hook.git',
+        'packages/Routing' => 'git@bitbucket.org:bravissimo_agency/wp-next-routing.git',
+        'packages/Support' => 'git@bitbucket.org:bravissimo_agency/wp-next-support.git',
         'packages/View' => 'git@bitbucket.org:bravissimo_agency/wp-next-view.git',
     ]);
 
