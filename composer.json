@@ -20,13 +20,13 @@
         }
     },
     "replace": {
-        "wp-next/ajax": "0.1.1",
-        "wp-next/console": "0.1.1",
-        "wp-next/core": "0.1.1",
-        "wp-next/hook": "0.1.1",
-        "wp-next/routing": "0.1.1",
-        "wp-next/support": "0.1.1",
-        "wp-next/view": "0.1.1"
+        "wp-next/ajax": "0.1.2",
+        "wp-next/console": "0.1.2",
+        "wp-next/core": "0.1.2",
+        "wp-next/hook": "0.1.2",
+        "wp-next/routing": "0.1.2",
+        "wp-next/support": "0.1.2",
+        "wp-next/view": "0.1.2"
     },
     "require": {
         "illuminate/config": "^8.22",
