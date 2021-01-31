@@ -18,9 +18,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
     // for "merge" command
     $parameters->set(Option::DATA_TO_APPEND, [
-        ComposerJsonSection::REQUIRE_DEV => [
+        'require-dev' => [
             'phpunit/phpunit' => '^9.5',
         ],
+    ]);
+
+    $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES, [
+        'packages/View' => 'git@bitbucket.org:bravissimo_agency/wp-next-view.git',
     ]);
 
     $services = $containerConfigurator->services();
