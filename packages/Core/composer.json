@@ -11,7 +11,7 @@
         "illuminate/http": "^8.22",
         "illuminate/events": "^8.22",
         "league/flysystem": "^1.1",
-        "illuminate/filesystem":  "^8.24",
+        "illuminate/filesystem": "^8.24",
         "illuminate/console": "^8.24",
         "illuminate/validation": "^8.24",
         "illuminate/translation": "^8.24"
