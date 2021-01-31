@@ -3,7 +3,7 @@ name: Split Monorepo Dev-Main
 on:
     push:
         branches:
-            - main
+            - master
 
         # see https://github.community/t/how-to-run-github-actions-workflow-only-for-new-tags/16075/10?u=tomasvotruba
         tags:
@@ -52,7 +52,7 @@ jobs:
             -
                 # Uses an action in the root directory
                 name: Monorepo Split of ${{ matrix.package }}
-                uses: symplify/github-action-monorepo-split@master
+                uses: wp-next/wp-next@master
                 env:
                     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
                 with:
