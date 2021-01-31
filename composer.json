@@ -29,6 +29,7 @@
         "wp-next/view": "0.0.3"
     },
     "require": {
+        "php": "^7.4|^8.0",
         "illuminate/config": "^8.22",
         "illuminate/console": "^8.24",
         "illuminate/container": "^8.22",
@@ -40,7 +41,6 @@
         "illuminate/translation": "^8.24",
         "illuminate/validation": "^8.24",
         "illuminate/view": "^8.22",
-        "league/flysystem": "^1.1",
-        "php": "^7.4|^8.0"
+        "league/flysystem": "^1.1"
     }
 }
