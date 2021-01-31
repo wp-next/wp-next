@@ -36,4 +36,4 @@ jobs:
 
                     tag: ${{ steps.previous_tag.outputs.tag }}
                     user-email: 'kim@bravissimo.se'
-                    user-name: 'Kim Larsson'
+                    user-name: 'Kimla'
