@@ -3,7 +3,7 @@
     "description": "WpNext Framework bundle",
     "require-dev": {
         "phpunit/phpunit": "^9.5",
-        "symplify/monorepo-builder": "^8.0"
+        "symplify/monorepo-builder": "^9.0"
     },
     "autoload": {
         "files": [
@@ -20,16 +20,15 @@
         }
     },
     "replace": {
-        "wp-next/ajax": "0.0.3",
-        "wp-next/console": "0.0.3",
-        "wp-next/core": "0.0.3",
-        "wp-next/hook": "0.0.3",
-        "wp-next/routing": "0.0.3",
-        "wp-next/support": "0.0.3",
-        "wp-next/view": "0.0.3"
+        "wp-next/ajax": "0.1.1",
+        "wp-next/console": "0.1.1",
+        "wp-next/core": "0.1.1",
+        "wp-next/hook": "0.1.1",
+        "wp-next/routing": "0.1.1",
+        "wp-next/support": "0.1.1",
+        "wp-next/view": "0.1.1"
     },
     "require": {
-        "php": "^7.4|^8.0",
         "illuminate/config": "^8.22",
         "illuminate/console": "^8.24",
         "illuminate/container": "^8.22",
@@ -41,6 +40,7 @@
         "illuminate/translation": "^8.24",
         "illuminate/validation": "^8.24",
         "illuminate/view": "^8.22",
-        "league/flysystem": "^1.1"
+        "league/flysystem": "^1.1",
+        "php": "^7.4|^8.0"
     }
 }

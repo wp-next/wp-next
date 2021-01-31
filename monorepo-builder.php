@@ -18,19 +18,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
     // for "merge" command
     $parameters->set(Option::DATA_TO_APPEND, [
-        'require-dev' => [
+        ComposerJsonSection::REQUIRE_DEV => [
             'phpunit/phpunit' => '^9.5',
         ],
-    ]);
-
-    $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES, [
-        'packages/Ajax' => 'git@bitbucket.org:bravissimo_agency/wp-next-ajax.git',
-        'packages/Console' => 'git@bitbucket.org:bravissimo_agency/wp-next-console.git',
-        'packages/Core' => 'git@bitbucket.org:bravissimo_agency/wp-next-core.git',
-        'packages/Hook' => 'git@bitbucket.org:bravissimo_agency/wp-next-hook.git',
-        'packages/Routing' => 'git@bitbucket.org:bravissimo_agency/wp-next-routing.git',
-        'packages/Support' => 'git@bitbucket.org:bravissimo_agency/wp-next-support.git',
-        'packages/View' => 'git@bitbucket.org:bravissimo_agency/wp-next-view.git',
     ]);
 
     $services = $containerConfigurator->services();
