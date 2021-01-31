@@ -58,6 +58,6 @@ jobs:
                 with:
                     package-directory: 'packages/${{ matrix.package }}'
                     split-repository-organization: 'Kimla'
-                    split-repository-name: '${{ matrix.package }}'
+                    split-repository-name: 'wp-next-${{ matrix.package }}'
                     user-name: "Kim Larsson"
                     user-email: "kim@bravissimo.se"
