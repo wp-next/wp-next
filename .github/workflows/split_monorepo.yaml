@@ -1,9 +1,9 @@
-name: Split Monorepo Dev-Master
+name: Split Monorepo Dev-Main
 
 on:
     push:
         branches:
-            - master
+            - main
 
         # see https://github.community/t/how-to-run-github-actions-workflow-only-for-new-tags/16075/10?u=tomasvotruba
         tags:
