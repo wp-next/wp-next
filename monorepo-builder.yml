@@ -1,11 +1,9 @@
-  
 # monorepo-builder.yml
 parameters:
     package_alias_format: '<major>.<minor>-dev' # default: "<major>.<minor>-dev"
 
     package_directories:
-        - 'packages/Symmono/Bundle'
-        - 'packages/Symmono/Component'
+        - 'packages/View'
 
     # add these to merge of packages' composer.json
     data_to_append:
@@ -13,4 +11,4 @@ parameters:
         "prefer-stable": true
 
     directories_to_repositories:
-        packages/View: 'git@github.com:symmono/framework-bundle.git'
+        packages/View/: 'git@bitbucket.org:bravissimo_agency/wp-next-view.git'
