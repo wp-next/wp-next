@@ -1,4 +1,5 @@
-name: Split Monorepo Dev-Main
+name: Split Monorepo Dev-Master
+ uses: actions/checkout@v2
 
 on:
     push:
