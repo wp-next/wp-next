@@ -1,5 +1,6 @@
 {
     "name": "wp-next/framework",
+    "description": "WpNext Framework bundle",
     "require-dev": {
         "phpunit/phpunit": "^9.5",
         "symplify/monorepo-builder": "^9.0"
