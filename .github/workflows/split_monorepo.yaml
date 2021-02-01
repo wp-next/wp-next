@@ -27,7 +27,9 @@ jobs:
                 with:
                     secrets_file: .github/workflows/secrets.json.gpg
                     map: 'USER_PASSWORD=PASSWORD'
-                    
+                env:
+                    GPG_PASSPHRASE: ${{ secrets.SECRETS_PASSPHRASE }}
+
               - name: Split
                 uses: "wp-next/wp-next@master"
                 env:
