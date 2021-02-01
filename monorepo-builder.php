@@ -30,7 +30,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/packages/Core' => 'git@github.com:wp-next/core.git',
         __DIR__ . '/packages/Hook' => 'git@github.com:wp-next/hook.git',
         __DIR__ . '/packages/Routing' => 'git@github.com:wp-next/routing.git',
-        __DIR__ . '/packages/Support' => 'git@github.com:wp-next/supoort.git',
+        __DIR__ . '/packages/Support' => 'git@github.com:wp-next/support.git',
         __DIR__ . '/packages/View' => 'git@github.com:wp-next/view.git',
     ]);
 
