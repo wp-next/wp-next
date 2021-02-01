@@ -24,8 +24,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'prefer-stable' => true,
     ]);
 
-    $parameters = $containerConfigurator->parameters();
-
     $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES, [
         __DIR__ . '/packages/Ajax' => 'git@github.com:wp-next/ajax.git',
         __DIR__ . '/packages/Console' => 'git@github.com:wp-next/console.git',
