@@ -45,11 +45,11 @@ fi
 
 CLONE_DIR=$(mktemp -d)
 TARGET_DIR=$(mktemp -d)
-CLONED_REPOSITORY="https://github.com/$SPLIT_REPOSITORY_ORGANIZATION/$SPLIT_REPOSITORY_NAME.git"
+CLONED_REPOSITORY="ssh://github.com/$SPLIT_REPOSITORY_ORGANIZATION/$SPLIT_REPOSITORY_NAME.git"
 note "Cloning '$CLONED_REPOSITORY' repository "
 
 # clone repository
-git clone -- "https://$GITHUB_TOKEN@github.com/$SPLIT_REPOSITORY_ORGANIZATION/$SPLIT_REPOSITORY_NAME.git" "$CLONE_DIR"
+git clone -- "ssh://$GITHUB_TOKEN@github.com/$SPLIT_REPOSITORY_ORGANIZATION/$SPLIT_REPOSITORY_NAME.git" "$CLONE_DIR"
 ls -la "$CLONE_DIR"
 
 note "Cleaning destination repository of old files"
@@ -62,7 +62,7 @@ ls -la "$TARGET_DIR"
 
 if test ! -z "$COMMIT_MESSAGE"
 then
-    ORIGIN_COMMIT="https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+    ORIGIN_COMMIT="ssh://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
     COMMIT_MESSAGE="${COMMIT_MESSAGE/ORIGIN_COMMIT/$ORIGIN_COMMIT}"
 else
     COMMIT_MESSAGE=$(git show -s --format=%B "$GITHUB_SHA")
