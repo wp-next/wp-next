@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            -
+              - name: Checkout code
                 uses: actions/checkout@v2
                 # this is required for "WyriHaximus/github-action-get-previous-tag" workflow
                 # see https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches
@@ -18,16 +18,17 @@ jobs:
                     fetch-depth: 0
 
             # see https://github.com/WyriHaximus/github-action-get-previous-tag
-            -
+              - name: Previous tag
                 id: previous_tag
                 uses: "WyriHaximus/github-action-get-previous-tag@master"
 
-            - 
+              - name: Decrypt secrets
                 uses: zgosalvez/github-actions-decrypt-secrets@v1
                 with:
                     secrets_file: .github/workflows/secrets.json.gpg
                     map: 'USER_PASSWORD=PASSWORD'
-            -
+                    
+              - name: Split
                 uses: "wp-next/wp-next@master"
                 env:
                     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -42,4 +43,4 @@ jobs:
                     tag: ${{ steps.previous_tag.outputs.tag }}
                     user-email: 'kimla89@gmail.com'
                     user-name: 'Kimla'
-                    user-password: ${{ USER_PASSWORD }}
+                    user-password: $USER_PASSWORD
