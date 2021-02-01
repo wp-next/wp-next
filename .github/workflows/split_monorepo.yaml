@@ -35,3 +35,5 @@ jobs:
                     split-repository-name: 'view'
 
                     tag: ${{ steps.previous_tag.outputs.tag }}
+                    user-email: 'kimla89@gmail.com'
+                    user-name: 'Kimla'

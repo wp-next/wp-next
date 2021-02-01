@@ -37,6 +37,12 @@ then
     git config --global user.name "$USER_NAME"
 fi
 
+if test ! -z "$USER_PASSWORD"
+then
+    git config --global user.password "$USER_PASSWORD"
+fi
+
+
 CLONE_DIR=$(mktemp -d)
 TARGET_DIR=$(mktemp -d)
 CLONED_REPOSITORY="https://github.com/$SPLIT_REPOSITORY_ORGANIZATION/$SPLIT_REPOSITORY_NAME.git"
