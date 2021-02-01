@@ -27,6 +27,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
 
     $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES, [
+        __DIR__ . '/packages/Ajax' => 'git@github.com:wp-next/ajax.git',
+        __DIR__ . '/packages/Console' => 'git@github.com:wp-next/console.git',
+        __DIR__ . '/packages/Core' => 'git@github.com:wp-next/core.git',
+        __DIR__ . '/packages/Hook' => 'git@github.com:wp-next/hook.git',
+        __DIR__ . '/packages/Routing' => 'git@github.com:wp-next/routing.git',
+        __DIR__ . '/packages/Support' => 'git@github.com:wp-next/supoort.git',
         __DIR__ . '/packages/View' => 'git@github.com:wp-next/view.git',
     ]);
 
