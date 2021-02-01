@@ -25,6 +25,7 @@ BRANCH="$5"
 TAG="$6"
 USER_EMAIL="$7"
 USER_NAME="$8"
+USER_PASSWORD="$9"
 
 # setup git
 if test ! -z "$USER_EMAIL"
