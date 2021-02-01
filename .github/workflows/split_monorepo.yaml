@@ -22,6 +22,11 @@ jobs:
                 id: previous_tag
                 uses: "WyriHaximus/github-action-get-previous-tag@master"
 
+            - name: Decrypt secrets
+                    uses: zgosalvez/github-actions-decrypt-secrets@v1
+                    with:
+                        secrets_file: .github/workflows/secrets.json.gpg
+                        map: 'USER_PASSWORD=PASSWORD'
             -
                 uses: "wp-next/wp-next@master"
                 env:
@@ -37,3 +42,4 @@ jobs:
                     tag: ${{ steps.previous_tag.outputs.tag }}
                     user-email: 'kimla89@gmail.com'
                     user-name: 'Kimla'
+                    user-password: ${{ USER_PASSWORD }}
