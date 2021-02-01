@@ -26,8 +26,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     ]);
 
     $parameters = $containerConfigurator->parameters();
+
     $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES, [
-        __DIR__ . '/packages/*' => 'git@github.com:wp-next/*.git',
+        __DIR__ . '/packages/View' => 'git@github.com:wp-next/view.git',
     ]);
 
     $services = $containerConfigurator->services();
