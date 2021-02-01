@@ -1,6 +1,7 @@
 {
     "name": "wp-next/ajax",
     "description": "The WpNext Ajax package.",
+    "type": "libary",
     "require": {
         "php": "^7.4|^8.0",
         "illuminate/support": "^8.22"

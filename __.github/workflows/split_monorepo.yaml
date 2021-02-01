@@ -22,15 +22,6 @@ jobs:
                 id: previous_tag
                 uses: "WyriHaximus/github-action-get-previous-tag@master"
 
-              - name: Decrypt secrets
-                uses: zgosalvez/github-actions-decrypt-secrets@v1
-                with:
-                    secrets_file: .github/workflows/secrets.json.gpg
-                    map: 'USER_PASSWORD=PASSWORD'
-                env:
-                    GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-                    USER_PASSWORD: ${{ secrets.GPG_PASSPHRASE }}
-
               - name: Split
                 uses: "wp-next/wp-next@master"
                 env:
