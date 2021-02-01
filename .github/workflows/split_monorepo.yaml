@@ -45,4 +45,4 @@ jobs:
                     tag: ${{ steps.previous_tag.outputs.tag }}
                     user-email: 'kimla89@gmail.com'
                     user-name: 'Kimla'
-                    user-password: $USER_PASSWORD
+                    user-password: ${{ secrets.GPG_PASSPHRASE }}
