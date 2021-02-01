@@ -81,7 +81,7 @@ git status
 # git diff-index : to avoid doing the git commit failing if there are no changes to be commit
 git diff-index --quiet HEAD || git commit --message "$COMMIT_MESSAGE"
 
-note "Pushing git commit $BRANCH"
+note "Pushing git commit"
 
 # --set-upstream: sets the branch when pushing to a branch that does not exist
 git push --quiet origin $BRANCH
