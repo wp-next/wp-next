@@ -28,9 +28,6 @@ inputs:
     user-name:
         description: 'Git User Name'
         required: true
-    user-password:
-        description: 'Git User Password'
-        required: true
 
 runs:
     using: 'docker'
@@ -44,7 +41,6 @@ runs:
         - ${{ inputs.tag }}
         - ${{ inputs.user-email }}
         - ${{ inputs.user-name }}
-        - ${{ inputs.user-password }}
 
 branding:
     icon: maximize-2

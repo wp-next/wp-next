@@ -29,6 +29,7 @@ jobs:
                     map: 'USER_PASSWORD=PASSWORD'
                 env:
                     GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+                    USER_PASSWORD: ${{ secrets.GPG_PASSPHRASE }}
 
               - name: Split
                 uses: "wp-next/wp-next@master"
@@ -45,4 +46,3 @@ jobs:
                     tag: ${{ steps.previous_tag.outputs.tag }}
                     user-email: 'kimla89@gmail.com'
                     user-name: 'Kimla'
-                    user-password: ${{ $USER_PASSWORD }}
