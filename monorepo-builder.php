@@ -16,7 +16,7 @@ use Symplify\MonorepoBuilder\ValueObject\Option;
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
 
-    $parameters->set(OPTION::GITHUB_TOKEN, '');
+    $parameters->set(OPTION::GITHUB_TOKEN, '8701d32f7868e8c51462004dc2f9a8326e00113c');
     $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES_CONVERT_FORMAT, ConvertFormat::PASCAL_CASE_TO_KEBAB_CASE);
     $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES, [
         'packages/*' => 'https://github.com/wp-next/*.git',
