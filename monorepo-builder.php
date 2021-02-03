@@ -19,7 +19,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(OPTION::GITHUB_TOKEN, '6bfd1be2fb9511883628fecd475dc6532a9e7189');
     $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES_CONVERT_FORMAT, ConvertFormat::PASCAL_CASE_TO_KEBAB_CASE);
     $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES, [
-        'packages/*' => 'https://github.com/wp-next/*.git',
+        'packages/*' => 'git@github.com/wp-next/*.git',
     ]);
 
     $services = $containerConfigurator->services();
