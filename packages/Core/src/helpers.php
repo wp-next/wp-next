@@ -115,3 +115,28 @@ function public_path($path = '')
 {
     return app()->publicPath($path);
 }
+
+function resource_path($path = '')
+{
+    return app()->resourcePath($path);
+}
+
+function asset(string $path)
+{
+    return app()->asset($path);
+}
+
+function vite($name)
+{
+    $manifest = app()->publicPath('dist/manifest.json');
+
+    $manifest = file_get_contents($manifest);
+
+    $manifest = json_decode($manifest, true);
+
+    if ($name === 'app.js') {
+        return '/dist/'.$manifest['resources/app.js']['file'];
+    } elseif ($name === 'app.css') {
+        return '/dist/'.$manifest['resources/app.js']['css'][0];
+    }
+}

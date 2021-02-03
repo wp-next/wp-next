@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Symfony\Component\HttpFoundation\Response;
 use WpNext\Routing\Router;
 use WpNext\Support\Facades\Action;
 use WpNext\Support\Facades\Filter;
-use Symfony\Component\HttpFoundation\Response;
 
 class Application extends Container
 {
@@ -42,6 +42,16 @@ class Application extends Container
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
         $this->registerServiceProviders();
+    }
+
+    public function asset($path)
+    {
+        return $this->get('url.assets').$path;
+    }
+
+    public function isHmrMode()
+    {
+        return file_exists($this->basePath('/hot'));
     }
 
     public function setBasePath($basePath)
@@ -249,6 +259,13 @@ class Application extends Container
         $this->instance('path.config', $this->configPath());
         // Storage
         $this->instance('path.storage', $this->storagePath());
+
+        $this->instance('url.assets', $this->assetsUrl());
+    }
+
+    public function assetsUrl() : string
+    {
+        return $this->isHmrMode() ? 'http://localhost:3000/resources/assets/' : '/assets/';
     }
 
     public function basePath($path = '') : string
@@ -356,7 +373,7 @@ class Application extends Container
         $this->initRouter();
 
         $this->bootProviders();
-        
+
         $this->booted = true;
     }
 
@@ -397,7 +414,7 @@ class Application extends Container
 
     public function run()
     {
-        if (!$this->booted) {
+        if (! $this->booted) {
             $this->boot();
         }
 
