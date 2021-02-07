@@ -448,4 +448,17 @@ class Application extends Container
     {
         return $this->booted;
     }
+
+    public function environment(...$environments)
+    {
+        $env = config('app.env');
+
+        if (count($environments) > 0) {
+            $patterns = is_array($environments[0]) ? $environments[0] : $environments;
+
+            return Str::is($patterns, $env);
+        }
+
+        return $env;
+    }
 }
