@@ -115,10 +115,6 @@ class Kernel implements KernelContract
      */
     public function handle($input, $output = null)
     {
-        $this->bootstrap();
-
-        return $this->getArtisan()->run($input, $output);
-
         try {
             $this->bootstrap();
 
