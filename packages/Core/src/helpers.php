@@ -111,6 +111,11 @@ function getJsVariables() : array
     return app()->getJsVariables();
 }
 
+function base_path($path = '')
+{
+    return app()->basePath($path);
+}
+
 function public_path($path = '')
 {
     return app()->publicPath($path);
@@ -119,6 +124,11 @@ function public_path($path = '')
 function resource_path($path = '')
 {
     return app()->resourcePath($path);
+}
+
+function database_path($path = '')
+{
+    return app()->databasePath($path);
 }
 
 function asset(string $path)

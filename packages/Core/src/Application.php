@@ -16,7 +16,11 @@ use WpNext\Support\Facades\Filter;
 
 class Application extends Container
 {
+    const VERSION = '0.0.1';
+
     protected $basePath;
+
+    protected $hasBeenBootstrapped = false;
 
     protected $booted = false;
 
@@ -42,6 +46,13 @@ class Application extends Container
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
         $this->registerServiceProviders();
+
+        $this->hasBeenBootstrapped = true;
+    }
+
+    public function hasBeenBootstrapped()
+    {
+        return $this->hasBeenBootstrapped;
     }
 
     public function asset($path)
@@ -261,6 +272,8 @@ class Application extends Container
         $this->instance('path.storage', $this->storagePath());
 
         $this->instance('url.assets', $this->assetsUrl());
+
+        $this->instance('path.database', $this->databasePath());
     }
 
     public function assetsUrl() : string
@@ -301,6 +314,11 @@ class Application extends Container
     public function storagePath($path = '')
     {
         return $this->basePath('storage').($path ? DIRECTORY_SEPARATOR.$path : $path);
+    }
+
+    public function databasePath($path = '')
+    {
+        return $this->basePath('database').($path ? DIRECTORY_SEPARATOR.$path : $path);
     }
 
     public function addJsVariable(string $name, $data) : void
@@ -412,6 +430,11 @@ class Application extends Container
         }, 1);
     }
 
+    public function version()
+    {
+        return static::VERSION;
+    }
+
     public function run()
     {
         if (! $this->booted) {
@@ -419,5 +442,10 @@ class Application extends Container
         }
 
         $this->router->dispatch($this->request)->send();
+    }
+
+    public function booted()
+    {
+        return $this->booted;
     }
 }

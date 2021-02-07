@@ -1,7 +1,6 @@
 {
     "name": "wp-next/wp-next",
     "description": "WpNext Framework bundle",
-    "type": "libary",
     "require-dev": {
         "phpunit/phpunit": "^9.5",
         "symplify/monorepo-builder": "^8.3.41"
@@ -34,6 +33,7 @@
         "illuminate/config": "^8.22",
         "illuminate/console": "^8.24",
         "illuminate/container": "^8.22",
+        "illuminate/database": "^8.26",
         "illuminate/events": "^8.22",
         "illuminate/filesystem": "^8.24",
         "illuminate/http": "^8.22",
