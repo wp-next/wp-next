@@ -12,4 +12,9 @@ class PostTypeServiceProvider extends ServiceProvider
             return new PostTypeBuilder($container);
         });
     }
+
+    public function boot()
+    {
+        $this->app->postType->init();
+    }
 }
