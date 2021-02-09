@@ -1,0 +1,13 @@
+{
+    "name": "wp-next/post-type",
+    "description": "The WpNext PostType package.",
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.22"
+    },
+    "autoload": {
+        "psr-4": {
+            "WpNext\\PostType\\": "src"
+        }
+    }
+}

@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 use Symfony\Component\HttpFoundation\Response;
 use WpNext\Routing\Router;
-use WpNext\Support\Facades\Action;
 use WpNext\Support\Facades\Filter;
 
 class Application extends Container
@@ -410,22 +409,6 @@ class Application extends Container
 
             return $result;
         });
-
-        Action::add('init', function () {
-            register_post_type('product', [
-                'labels' => [
-                    'name' => __('Product', 'test'),
-                    'singular_name' => __('Product', 'test'),
-                ],
-                'public' => true,
-                'has_archive' => true,
-                'show_ui' => true,
-                'show_in_menu' => true,
-                'show_in_rest' => false,
-                'supports' => ['title'],
-                'rewrite' => ['slug' => 'product'],
-            ]);
-        }, 1);
     }
 
     public function version()
