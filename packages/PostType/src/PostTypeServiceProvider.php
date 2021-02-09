@@ -15,6 +15,8 @@ class PostTypeServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__.'/views', 'postType');
+
         $this->app->postType->init();
     }
 }
