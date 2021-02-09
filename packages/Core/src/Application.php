@@ -6,6 +6,7 @@ use Illuminate\Container\Container;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Request;
+use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
@@ -376,6 +377,10 @@ class Application extends Container
         });
 
         $this->router->group([], $this->basePath('routes/web.php'));
+
+        $this->singleton('url', function () {
+            return new UrlGenerator($this->router->getRoutes(), $this->request);
+        });
     }
 
     public function boot()
