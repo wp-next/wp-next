@@ -51,10 +51,10 @@ class PostTypeBuilder
 
     protected function updateSortOrder($posts)
     {
-        foreach ($posts as $post) {
+        foreach ($posts as $order => $post) {
             wp_update_post([
-                'ID'         => $post['id'],
-                'menu_order' => $post['order'],
+                'ID'         => $post,
+                'menu_order' => $order,
             ]);
         }
 

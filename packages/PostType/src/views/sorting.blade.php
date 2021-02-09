@@ -63,14 +63,7 @@
         itemsToUpdate = [];
 
         for (var i = 0; i < listItems.length; i++) {
-            var id = listItems[i].dataset.id;
-
-            var item = {
-                id: id,
-                order: i + 1
-            };
-
-            itemsToUpdate.push(item);
+            itemsToUpdate.push(listItems[i].dataset.id);
         }
 
         jQuery.ajax({
