@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Container\Container;
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\JsonResponse;
@@ -131,22 +132,16 @@ function database_path($path = '')
     return app()->databasePath($path);
 }
 
-function asset(string $path)
+function asset(string $path, $secure = null)
 {
-    return app()->asset($path);
+    return app('url')->asset($path, $secure);
 }
 
-function vite($name)
+function url($path = null, $parameters = [], $secure = null)
 {
-    $manifest = app()->publicPath('dist/manifest.json');
-
-    $manifest = file_get_contents($manifest);
-
-    $manifest = json_decode($manifest, true);
-
-    if ($name === 'app.js') {
-        return '/dist/'.$manifest['resources/app.js']['file'];
-    } elseif ($name === 'app.css') {
-        return '/dist/'.$manifest['resources/app.js']['css'][0];
+    if (is_null($path)) {
+        return app(UrlGenerator::class);
     }
+
+    return app(UrlGenerator::class)->to($path, $parameters, $secure);
 }

@@ -272,14 +272,7 @@ class Application extends Container
         // Storage
         $this->instance('path.storage', $this->storagePath());
 
-        $this->instance('url.assets', $this->assetsUrl());
-
         $this->instance('path.database', $this->databasePath());
-    }
-
-    public function assetsUrl() : string
-    {
-        return $this->isHmrMode() ? 'http://localhost:3000/resources/assets/' : '/assets/';
     }
 
     public function basePath($path = '') : string
