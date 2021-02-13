@@ -76,7 +76,7 @@ class PostTypeBuilder
         view('postType::sorting', compact('posts', 'label'));
     }
 
-    public function removePostType(string $postType)
+    public function remove(string $postType)
     {
         global $wp_post_types;
         if (isset($wp_post_types[$postType])) {
