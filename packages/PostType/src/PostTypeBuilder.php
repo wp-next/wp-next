@@ -11,20 +11,22 @@ class PostTypeBuilder
 
     public function register($name, $closure)
     {
-        $this->postTypes[$name] = $closure;
+        $postType = new PostType($name, $closure);
+
+        $this->postTypes[$name] = $postType;
     }
 
     public function init()
     {
-        foreach ($this->postTypes as $name => $closure) {
-            $config = $closure();
+        foreach ($this->postTypes as $postType) {
+            $postType->create();
 
-            if (! empty($config['sortable'])) {
-                $this->createSortingPage($name);
+            if ($postType->isSortAble()) {
+                $this->createSortingPage($postType->name);
             }
-
-            register_post_type($name, $config);
         }
+
+        new ArchivePageAdmin($this->postTypes);
 
         Ajax::listen('updatePostsOrder', fn () => $this->updateSortOrder(request('posts')));
     }
