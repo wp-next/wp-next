@@ -17,6 +17,7 @@
             "WpNext\\PostType\\": "packages/PostType/src",
             "WpNext\\Routing\\": "packages/Routing/src",
             "WpNext\\Support\\": "packages/Support/src",
+            "WpNext\\Taxonomy\\": "packages/Taxonomy/src",
             "WpNext\\View\\": "packages/View/src"
         }
     },
@@ -28,6 +29,7 @@
         "wp-next/post-type": "self.version",
         "wp-next/routing": "self.version",
         "wp-next/support": "self.version",
+        "wp-next/taxonomy": "self.version",
         "wp-next/view": "self.version"
     },
     "require": {
