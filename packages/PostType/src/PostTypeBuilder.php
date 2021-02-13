@@ -93,4 +93,9 @@ class PostTypeBuilder
 
         return false;
     }
+
+    public function removeEditor(string $postType)
+    {
+        remove_post_type_support($postType, 'editor');
+    }
 }
