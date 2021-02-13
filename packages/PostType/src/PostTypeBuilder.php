@@ -75,4 +75,22 @@ class PostTypeBuilder
 
         view('postType::sorting', compact('posts', 'label'));
     }
+
+    public function removePostType(string $postType)
+    {
+        global $wp_post_types;
+        if (isset($wp_post_types[$postType])) {
+            $wp_post_types[$postType]->public = false;
+            $wp_post_types[$postType]->show_in_menu = false;
+            $wp_post_types[$postType]->show_ui = false;
+            $wp_post_types[$postType]->show_in_admin_bar = false;
+            $wp_post_types[$postType]->publicly_queryable = false;
+            $wp_post_types[$postType]->show_in_rest = false;
+            $wp_post_types[$postType]->show_in_nav_menus = false;
+
+            return true;
+        }
+
+        return false;
+    }
 }
