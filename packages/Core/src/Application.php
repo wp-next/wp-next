@@ -85,6 +85,14 @@ class Application extends Container
         $this->bind('files', function ($app) use ($filesystem) {
             return $filesystem;
         });
+
+        $this->singleton(PackageManifest::class, function () {
+            return new PackageManifest(
+                new Filesystem, $this->basePath(), $this->storagePath('cache/packages.php'),
+            );
+        });
+
+        //$this->make(PackageManifest::class)->build();
     }
 
     protected function registerServiceProviders()
