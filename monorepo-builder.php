@@ -19,6 +19,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::ROOT_DIRECTORY, __DIR__);
     $parameters->set(Option::PACKAGE_DIRECTORIES, [
         __DIR__.'/packages',
+        __DIR__.'/components',
     ]);
 
     $parameters->set(Option::DIRECTORIES_TO_REPOSITORIES_CONVERT_FORMAT, ConvertFormat::PASCAL_CASE_TO_KEBAB_CASE);

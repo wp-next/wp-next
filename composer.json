@@ -1,8 +1,15 @@
 {
     "name": "wp-next/wp-next",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WpNext\\TestComponent\\TestComponentServiceProvider"
+            ]
+        }
+    },
     "description": "WpNext Framework bundle",
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^8.0",
         "symplify/monorepo-builder": "^8.3.41"
     },
     "autoload": {
@@ -18,6 +25,7 @@
             "WpNext\\Routing\\": "packages/Routing/src",
             "WpNext\\Support\\": "packages/Support/src",
             "WpNext\\Taxonomy\\": "packages/Taxonomy/src",
+            "WpNext\\TestComponent\\": "components/example/src",
             "WpNext\\View\\": "packages/View/src"
         }
     },
@@ -30,6 +38,7 @@
         "wp-next/routing": "self.version",
         "wp-next/support": "self.version",
         "wp-next/taxonomy": "self.version",
+        "wp-next/test-component": "self.version",
         "wp-next/view": "self.version"
     },
     "require": {

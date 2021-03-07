@@ -97,7 +97,9 @@ class Application extends Container
 
     protected function registerServiceProviders()
     {
-        $providers = config('app.providers');
+        $providers = config('app.providers') ?? [];
+
+        $providers = array_merge($providers, $this->make(PackageManifest::class)->providers() ?? []);
 
         if (empty($providers)) {
             return;
@@ -239,7 +241,6 @@ class Application extends Container
             'filesystem.disk'      => [\Illuminate\Contracts\Filesystem\Filesystem::class],
             'hash'                 => [\Illuminate\Hashing\HashManager::class],
             'hash.driver'          => [\Illuminate\Contracts\Hashing\Hasher::class],
-            'translator'           => [\Illuminate\Translation\Translator::class, \Illuminate\Contracts\Translation\Translator::class],
             'log'                  => [\Illuminate\Log\LogManager::class, \Psr\Log\LoggerInterface::class],
             'mail.manager'         => [\Illuminate\Mail\MailManager::class, \Illuminate\Contracts\Mail\Factory::class],
             'mailer'               => [\Illuminate\Mail\Mailer::class, \Illuminate\Contracts\Mail\Mailer::class, \Illuminate\Contracts\Mail\MailQueue::class],
@@ -329,6 +330,11 @@ class Application extends Container
         } else {
             $this->jsVariables[$name] = $data;
         }
+    }
+
+    public function getLocale()
+    {
+        return 'sv';
     }
 
     public function getJsVariables() : array
