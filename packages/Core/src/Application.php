@@ -360,16 +360,6 @@ class Application extends Container
 
         $this->instance('router', $router);
 
-        $this->router->prefix('api')->group(function () use ($router) {
-            require_once $this->basePath('routes/api.php');
-        });
-
-        $this->router->prefix('wp-admin')->group(function () use ($router) {
-            require_once $this->basePath('routes/admin.php');
-        });
-
-        $this->router->group([], $this->basePath('routes/web.php'));
-
         $this->singleton('url', function () {
             return new UrlGenerator($this->router->getRoutes(), $this->request);
         });
