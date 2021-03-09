@@ -1,9 +1,12 @@
 {
     "name": "wp-next/wp-next",
     "extra": {
-        "laravel": {
+        "wpNext": {
             "providers": [
                 "WpNext\\TestComponent\\TestComponentServiceProvider"
+            ],
+            "js": [
+                "wp-next/wp-next/components/example/resources/components/index.js"
             ]
         }
     },

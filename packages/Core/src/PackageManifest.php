@@ -42,6 +42,8 @@ class PackageManifest
      */
     public $manifest;
 
+    public $jsManifestPath;
+
     /**
      * Create a new package manifest instance.
      *
@@ -50,11 +52,12 @@ class PackageManifest
      * @param  string  $manifestPath
      * @return void
      */
-    public function __construct(Filesystem $files, $basePath, $manifestPath)
+    public function __construct(Filesystem $files, $basePath, $manifestPath, $jsManifestPath)
     {
         $this->files = $files;
         $this->basePath = $basePath;
         $this->manifestPath = $manifestPath;
+        $this->jsManifestPath = $jsManifestPath;
         $this->vendorPath = $basePath.'/vendor';
     }
 
@@ -128,12 +131,23 @@ class PackageManifest
         $ignoreAll = in_array('*', $ignore = $this->packagesToIgnore());
 
         $this->write(collect($packages)->mapWithKeys(function ($package) {
-            return [$this->format($package['name']) => $package['extra']['laravel'] ?? []];
+            return [$this->format($package['name']) => $package['extra']['wpNext'] ?? []];
         })->each(function ($configuration) use (&$ignore) {
             $ignore = array_merge($ignore, $configuration['dont-discover'] ?? []);
         })->reject(function ($configuration, $package) use ($ignore, $ignoreAll) {
             return $ignoreAll || in_array($package, $ignore);
         })->filter()->all());
+    }
+
+    public function buildJs()
+    {
+        $js = collect($this->getManifest())->mapWithKeys(function ($package, $key) {
+            return [$key => $package['js'][0] ?? null];
+        })->filter()->map(function ($path) {
+            return '../../vendor/'.$path;
+        })->all();
+
+        $this->writeJs($js);
     }
 
     /**
@@ -179,6 +193,25 @@ class PackageManifest
 
         $this->files->replace(
             $this->manifestPath, '<?php return '.var_export($manifest, true).';'
+        );
+    }
+
+    protected function writeJs(array $manifest)
+    {
+        if (! is_writable($dirname = dirname($this->manifestPath))) {
+            throw new Exception("The {$dirname} directory must be present and writable.");
+        }
+
+        $out = 'export default {';
+
+        foreach ($manifest as $key => $path) {
+            $out .= 'test: require("'.$path.'"),';
+        }
+
+        $out .= '};';
+
+        $this->files->replace(
+            $this->jsManifestPath, $out
         );
     }
 }

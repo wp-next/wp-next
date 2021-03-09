@@ -88,11 +88,11 @@ class Application extends Container
 
         $this->singleton(PackageManifest::class, function () {
             return new PackageManifest(
-                new Filesystem, $this->basePath(), $this->storagePath('cache/packages.php'),
+                new Filesystem, $this->basePath(), $this->storagePath('cache/packages.php'), $this->storagePath('cache/packages.js'),
             );
         });
 
-        //$this->make(PackageManifest::class)->build();
+        $this->make(PackageManifest::class)->buildJs();
     }
 
     protected function registerServiceProviders()

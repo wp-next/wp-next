@@ -1,0 +1,12 @@
+{
+  "name": "wp-next-test",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Kim Larsson <kim@bravisismo.se>",
+  "homepage": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "vue": "^2.6.12"
+  }
+}

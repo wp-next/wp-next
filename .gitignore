@@ -3,8 +3,7 @@
 composer.lock
 
 # node
-/node_modules
-package-lock.json
+node_modules
 
 # phpunit
 .phpunit.result.cache
